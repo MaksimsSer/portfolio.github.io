@@ -6,8 +6,8 @@ html {
     --bg: #070b10;
     --panel: #111722;
     --panel-alt: #161d2a;
-    --text: #f7f5ef;
-    --muted: #c8cdd6;
+    --text: #ffd88a;
+    --muted: #f4cf84;
     --accent: #f2b36b;
     --accent-dark: #b9782d;
     --accent-soft: #ffe8c8;
@@ -421,7 +421,7 @@ footer {
 .Column_2 p,
 .Column_2 .project-card p,
 .Column_2 .project-card h3 {
-    color: #f5f7fb;
+    color: #ffd88a;
 }
 
 /* This inserts something after the content of selected elements (in this case the elements with class "Row") */

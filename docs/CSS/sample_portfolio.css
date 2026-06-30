@@ -377,6 +377,47 @@ footer {
 }
 /***** End of Table Styling *****/
 
+/***** Skills and Projects Styling *****/
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+.skill-pill {
+    background: linear-gradient(135deg, rgba(242, 179, 107, 0.18), rgba(255, 255, 255, 0.2));
+    color: #1f2430;
+    padding: .7rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(242, 179, 107, 0.25);
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(242, 179, 107, 0.2);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: .7rem 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-card h3 {
+    margin: 0 0 .3rem;
+    color: var(--accent-soft);
+    font-size: 1.05rem;
+}
+
+.project-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+}
+/***** End of Skills and Projects Styling *****/
+
 /***** Contact Form Styling *****/
 /* Button used to open the contact form - fixed at the bottom of the page */
 .Pop_Up_Button {

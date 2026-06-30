@@ -45,3 +45,80 @@ document.addEventListener("click", function(event){
         closeForm()
     }
 }, false )
+
+// Assistant chat widget interactions
+const assistantToggle = document.getElementById("assistantToggle");
+const assistantClose = document.getElementById("assistantClose");
+const assistantPanel = document.getElementById("assistantPanel");
+const assistantForm = document.getElementById("assistantForm");
+const assistantInput = document.getElementById("assistantInput");
+const assistantMessages = document.getElementById("assistantMessages");
+
+function toggleAssistant(forceOpen) {
+    if (!assistantPanel) return;
+    const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : !assistantPanel.classList.contains("open");
+    assistantPanel.classList.toggle("open", shouldOpen);
+    if (assistantToggle) {
+        assistantToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+    }
+}
+
+function addAssistantMessage(text, isUser) {
+    if (!assistantMessages) return;
+    const message = document.createElement("div");
+    message.className = "assistant-message " + (isUser ? "assistant-user" : "assistant-bot");
+    message.textContent = text;
+    assistantMessages.appendChild(message);
+    assistantMessages.scrollTop = assistantMessages.scrollHeight;
+}
+
+function getAssistantReply(question) {
+    const q = question.toLowerCase();
+
+    if (q.includes("skill") || q.includes("technology") || q.includes("stack") || q.includes("lang")) {
+        return "I work with HTML, CSS, JavaScript, MySQL, .NET, and C#.";
+    }
+    if (q.includes("project") || q.includes("portfolio")) {
+        return "I have built a portfolio website and a polished contact experience integrated with Formspree.";
+    }
+    if (q.includes("contact") || q.includes("email") || q.includes("phone")) {
+        return "You can open the Contact form from the button on the page or use the form section below.";
+    }
+    if (q.includes("about") || q.includes("who")) {
+        return "I am a software developer in training focused on building clean, modern web experiences.";
+    }
+    if (q.includes("github")) {
+        return "You can view my GitHub profile in the GitHub section or here: https://github.com/MaksimsSer";
+    }
+    if (q.includes("price") || q.includes("cost")) {
+        return "Project pricing depends on scope and timeline. Feel free to contact me with your idea.";
+    }
+
+    return "You can ask me about my skills, projects, experience, GitHub, or how to get in touch.";
+}
+
+if (assistantToggle) {
+    assistantToggle.addEventListener("click", function() {
+        toggleAssistant();
+    });
+}
+
+if (assistantClose) {
+    assistantClose.addEventListener("click", function() {
+        toggleAssistant(false);
+    });
+}
+
+if (assistantForm) {
+    assistantForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const value = assistantInput.value.trim();
+        if (!value) return;
+
+        addAssistantMessage(value, true);
+        assistantInput.value = "";
+        setTimeout(function() {
+            addAssistantMessage(getAssistantReply(value), false);
+        }, 350);
+    });
+}

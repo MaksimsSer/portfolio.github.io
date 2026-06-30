@@ -52,8 +52,8 @@ h1 {
 /* Heading 1 element hover effect */
 h1:hover {
     filter: grayscale(5%); /* Adds a slightly gray filter to the h1 headings when hovered over */
-    transform: scale(1.1); /* When the h1 elements are hovered over they increase in size by 1.1 */
-    transition: transform 1s; /* This causes the transformation to last 1 second */
+    transform: scale(1.01); /* Keeps the heading subtle so it doesn't push surrounding content out of place */
+    transition: transform 0.5s ease; /* This causes the transformation to last 0.5 seconds */
 }
 
 /* Styling for Portfolio Title Text */
@@ -217,11 +217,17 @@ footer {
         padding: .75rem .8rem;
     }
 
+    .Row {
+        flex-direction: column;
+    }
+
     .Column_1,
     .Column_2 {
         width: 100%;
-        float: none;
+        flex-basis: 100%;
         min-height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(242, 179, 107, 0.16);
     }
 
     #Slideshow_Container {
@@ -376,8 +382,16 @@ footer {
     box-sizing: border-box; /* This creates a box with a border within which we will place most of our text */
 } 
 
+.Row {
+    display: flex;
+    flex-wrap: wrap;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    align-items: stretch;
+}
+
 .Column_1 {
-    float: left;
+    flex: 1 1 50%;
     width: 50%; /* This ensures the column takes up half of the page width */
     padding: 2.2%;
     min-height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
@@ -385,15 +399,26 @@ footer {
     color: #1f2430;
     border-right: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
+    min-width: 280px;
 }
 
 .Column_2 {
-    float: left;
+    flex: 1 1 50%;
     width: 50%;
     padding: 2.2%;
     min-height: 450px;
     background: linear-gradient(145deg, #1d2632, #111722);
     overflow: hidden;
+    min-width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Row .Column_2 img {
+    margin: 0;
+    margin-left: 0.5rem;
+    max-width: 92%;
 }
 
 .Column_1 p,
@@ -414,6 +439,13 @@ footer {
 	content: ""; /* By leaving this blank, we are allowing the footer (covered lower down) to be displayed - removing it makes the footer overwrite a column */
 	display: table; /* The display property specifies the type of display behavior; the table value tells the browser to treat the element as a table */
 	clear: both; /* This clears any other elements from floating on the left or the right of an element */
+}
+
+.Row .Column_1 p,
+.Row .Column_2 p {
+    margin: 0 0 1rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 /***** End of Table Styling *****/
 

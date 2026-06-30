@@ -447,6 +447,13 @@ footer {
     max-width: 100%;
     overflow-wrap: anywhere;
 }
+
+#About .Column_1 p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+}
 /***** End of Table Styling *****/
 
 /***** Skills and Projects Styling *****/
@@ -531,9 +538,9 @@ footer {
 
 /* Form styling */
 .form-container {
-    max-width: 32rem; /* Relative sizing of the form container - 49% of the viewport width */
-    width: min(90vw, 32rem);
-    padding: 1.2rem; /* Adds padding between the form-popup and the form-container */
+    max-width: 36rem; /* Relative sizing of the form container - 49% of the viewport width */
+    width: min(92vw, 36rem);
+    padding: 1.35rem; /* Adds padding between the form-popup and the form-container */
     background: linear-gradient(145deg, #fffaf1, #f4ebdc); 
     border-radius: 18px;
     box-shadow: var(--shadow);

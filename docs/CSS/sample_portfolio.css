@@ -59,7 +59,11 @@ h1:hover {
 /* Styling for Portfolio Title Text */
 .white-text {
     color: var(--accent);/* This is used to change the color of the Portfolio Title text */
-    padding-top: 10vh; /* Adds padding (equal to 10% of the viewport height) to the top of the Portfolio Title text */
+    padding-top: 12vh; /* Adds padding (equal to 12% of the viewport height) to the top of the Portfolio Title text */
+}
+
+.Video_Text {
+    padding-top: 1.5rem;
 }
 
 /* Paragraph elements */
@@ -383,15 +387,12 @@ footer {
 } 
 
 .Row {
-    display: flex;
-    flex-wrap: wrap;
-    width: min(100%, 1200px);
-    margin: 0 auto;
-    align-items: stretch;
+    width: 100%;
+    margin: 0;
 }
 
 .Column_1 {
-    flex: 1 1 50%;
+    float: left;
     width: 50%; /* This ensures the column takes up half of the page width */
     padding: 2.2%;
     min-height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
@@ -399,26 +400,15 @@ footer {
     color: #1f2430;
     border-right: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    min-width: 280px;
 }
 
 .Column_2 {
-    flex: 1 1 50%;
+    float: left;
     width: 50%;
     padding: 2.2%;
     min-height: 450px;
     background: linear-gradient(145deg, #1d2632, #111722);
     overflow: hidden;
-    min-width: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.Row .Column_2 img {
-    margin: 0;
-    margin-left: 0.5rem;
-    max-width: 92%;
 }
 
 .Column_1 p,

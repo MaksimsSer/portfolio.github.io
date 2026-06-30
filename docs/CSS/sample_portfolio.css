@@ -22,12 +22,12 @@ body {
     transition: 3s opacity; /* This causes a 3 second fade in */
     letter-spacing: .2vw; /* vw is a relative measurement, 1vw is equal to 1% of the viewport width */
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.08vw; 
+    font-size: 1rem; 
     line-height: 1.75;
     overflow-x: hidden; /* This prevents the horizontal scroll bar from appearing when the quote is hovered over */
     user-select: none; /* This prevents the text on the webpage from being highlighted by the user */
     background:
-        radial-gradient(circle at top left, rgba(242, 179, 107, 0.12), transparent 25%),
+        radial-gradient(circle at top left, rgba(242, 179, 107, 0.16), transparent 28%),
         linear-gradient(135deg, var(--bg) 0%, #121a24 100%);
     color: var(--text);
     box-sizing: border-box;
@@ -47,6 +47,7 @@ h1 {
     color: var(--accent); 
     letter-spacing: .28vw;
     text-shadow: 0 2px 14px rgba(242, 179, 107, 0.16);
+    font-size: clamp(1.6rem, 2.2vw, 2.4rem);
 }
 
 /* Heading 1 element hover effect */
@@ -63,7 +64,24 @@ h1:hover {
 }
 
 .Video_Text {
-    padding-top: 1.5rem;
+    padding: 2rem 1.5rem 3rem;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(7,11,16,0.25) 0%, rgba(7,11,16,0.75) 100%);
+}
+
+.hero-tag {
+    margin: 0 0 1.2rem;
+    color: var(--accent-soft);
+    font-size: 1rem;
+    letter-spacing: 0.24rem;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 /* Paragraph elements */
@@ -249,10 +267,12 @@ footer {
 .Video_Text {
     background: rgba(7, 10, 14, 0.62); /* This provides a semi-transparents background for the text to sit over */
     color: white; /* Makes the font color white */
-    width: 100%; /* Ensures the video-text container fills the width of the video */
-    height: 100vh; /* This ensures the video-text container fills the height of the viewport so that the slideshow is not partially displayed */
+    width: min(1100px, 100%); /* Ensures the video-text container fits the page nicely */
+    min-height: 100vh; /* This ensures the video-text container fills the height of the viewport so that the slideshow is not partially displayed */
     padding: 6vh 4vw 2vh; /* This adds padding around the video-text container so that the background goes slightly beyond the text */
     position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
+    margin: 0 auto;
+    border-radius: 0 0 30px 30px;
     -webkit-animation: moveVideoText 5.75s; /* Animation for Safari 4.0 - 8.0 */
     animation: moveVideoText 5.75s; /* moveVideoText animation set to 5.75s to match the movenavText animation */
 }
@@ -267,12 +287,13 @@ footer {
 /***** Slideshow Styling *****/
 #Slideshow_Background {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(242, 179, 107, 0.14)); /* This creates a slightly transparent white background that's palced over the video in the background */    
-    border-radius: 24px;
-    margin: 4vw auto;
-    padding: 1.5vw;
+    border-radius: 28px;
+    margin: 2rem auto 3rem;
+    padding: 1.25rem;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     max-width: 960px;
+    backdrop-filter: blur(8px);
 }
 
 .mySlides{
@@ -388,28 +409,34 @@ footer {
 } 
 
 .Row {
-    width: 100%;
-    margin: 0;
+    width: min(1220px, 100%);
+    margin: 1rem auto 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+.Column_1,
+.Column_2 {
+    flex: 1 1 calc(50% - 1rem);
+    padding: 2rem;
+    min-height: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
 }
 
 .Column_1 {
-    float: left;
-    width: 50%; /* This ensures the column takes up half of the page width */
-    padding: 2.2%;
-    min-height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
     background: linear-gradient(145deg, #f8f5ef, #efe8dd); /* Sets the background color of the left columns */
     color: #1f2430;
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    border: 1px solid rgba(242, 179, 107, 0.16);
 }
 
 .Column_2 {
-    float: left;
-    width: 50%;
-    padding: 2.2%;
-    min-height: 450px;
     background: linear-gradient(145deg, #1d2632, #111722);
-    overflow: hidden;
+    border: 1px solid rgba(242, 179, 107, 0.16);
 }
 
 .Column_1 p,
@@ -446,27 +473,27 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: .7rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 1.2rem;
 }
 
 .skill-pill {
-    background: linear-gradient(135deg, rgba(242, 179, 107, 0.18), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(135deg, rgba(242, 179, 107, 0.18), rgba(255, 255, 255, 0.22));
     color: #1f2430;
     padding: .7rem 1rem;
     border-radius: 999px;
     border: 1px solid rgba(242, 179, 107, 0.25);
     font-weight: 600;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(242, 179, 107, 0.2);
-    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(242, 179, 107, 0.08));
+    border: 1px solid rgba(242, 179, 107, 0.22);
+    border-radius: 16px;
     padding: 1rem 1.1rem;
-    margin: .7rem 0;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    margin: .8rem 0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .project-card h3 {
@@ -495,7 +522,7 @@ footer {
     color: #111; /* Sets the color of the button text to black */
     border: none; /* This makes a solid black border around the button */
     border-radius: 999px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
     cursor: pointer; /* This changes the cursor when hovered over the button to a pointer */
     -webkit-animation: movePopup 5s; /* Animation for 5 seconds for Safari 4.0-8.0 */
     animation: movePopup 5s; /* Animation set for 5 seconds */
@@ -527,8 +554,8 @@ footer {
     width: min(92vw, 36rem);
     padding: 1.35rem; /* Adds padding between the form-popup and the form-container */
     background: linear-gradient(145deg, #fffaf1, #f4ebdc); 
-    border-radius: 18px;
-    box-shadow: var(--shadow);
+    border-radius: 20px;
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(242, 179, 107, 0.24);
 }
 
